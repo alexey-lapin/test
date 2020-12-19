@@ -8,3 +8,7 @@ plugins {
     java
     id("net.researchgate.release") version "2.8.1"
 }
+
+release {
+    tagTemplate = "v\${version}"
+}
