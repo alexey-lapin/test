@@ -37,7 +37,7 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
-          body_path: ${{ steps.github_release.outputs.changelog }}
+          body: ${{ steps.github_release.outputs.changelog }}
           draft: true
           files: |
             README.md
