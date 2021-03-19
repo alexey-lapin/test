@@ -37,6 +37,7 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
+          configuration: "release-changelog-builder.json"
           body: ${{ steps.github_release.outputs.changelog }}
           draft: true
           files: |
