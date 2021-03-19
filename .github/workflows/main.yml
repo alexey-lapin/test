@@ -13,6 +13,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/')
     steps:
       - uses: actions/checkout@v2
         with:
@@ -38,7 +39,7 @@ jobs:
         with:
           body_path: ${{ steps.github_release.outputs.changelog }}
           draft: true
- #          files: |
-#            service-*-all.jar
+          files: |
+            README.md
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
