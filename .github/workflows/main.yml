@@ -31,13 +31,14 @@ jobs:
       - name: Build Changelog
         id: github_release
         uses: mikepenz/release-changelog-builder-action@v1
+        with:
+          configuration: "release-changelog-builder.json"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
-          configuration: "release-changelog-builder.json"
           body: ${{ steps.github_release.outputs.changelog }}
           draft: true
           files: |
